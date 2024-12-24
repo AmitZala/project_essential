@@ -1,0 +1,61 @@
+MongoDB 
+
+username: amitzala
+password: amit261193
+
+
+
+mongodb+srv://<db_username>:<db_password>@cluster0.6vjlk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+
+
+
+Below code write in notebook-
+
+import pandas as pd
+import pymongo
+
+df = pd.read_csv('data.csv')
+df.head()
+
+
+
+# df should be converted into dict before we push it to mongodb
+
+data = df.to_dict(orient='records')
+
+
+
+DB_NAME = "Proj1"
+COLLECTION_NAME = "Proj1-Data"
+CONNECTION_URL = "mongodb+srv://vikashdas770:WtwsW3eh6T3J0h6z@cluster0.0aygk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+
+# above, either remove your credentials or delete the mongoDB resource bofore pushing it to github.
+
+
+
+client = pymongo.MongoClient(CONNECTION_URL)
+data_base = client[DB_NAME]
+collection = data_base[COLLECTION_NAME]
+
+
+# Uploading data to MongoDB
+rec = collection.insert_many(data)
+
+
+# Load back data from mongodb
+
+df = pd.DataFrame(list(collection.find()))
+df.head(2)
+
+
+
+
+## If you are getting timeout issue
+
+# import certifi
+# client = pymongo.MongoClient(CONNECTION_URL, tlsCAFile=certifi.where())
+# # TO CREATE THE DATABASE
+# data_base = client[DB_NAME]
+# collection = data_base[COLLECTION_NAME]
+# # TO INSERT DATA INTO THE COLLECTION
+# rec = collection.insert_many(data)

@@ -1,0 +1,53 @@
+MLops - Project-Introduction
+
+
+Project - Vehicle Insurance Domain
+Heavy on Mlops instead of Data Science.
+Strong exposer to SDE.
+Coverage end to end.
+Reusable template format.
+Various crash course.
+Expect difficulties.
+
+
+
+
+Tools & Techniques used
+
+
+MongoDB
+Robust pipeline - training/prediction
+FastAPI
+CI/CD - GitHub Actions.
+AWS - IAM, ECR, EC2
+
+
+System Design
+
+1. Workflow
+2. Components
+3. Pipeline
+
+
+Components:
+
+Data Ingestion
+Data Validation
+Data Transformation
+Model Training
+Model Evaluation
+Model Pusher
+
+
+Workflow:
+
+Constants
+Config_entity
+Artifact_entity --> test file, train file
+Component
+Pipeline
+Demo.py/app.py
+
+
+
+
